@@ -16,3 +16,5 @@ module TwitterClone
     # -- all .rb files in that directory are automatically loaded.
   end
 end
+# for heroku deploy
+config.assets.initialize_on_precompile = false
