@@ -30,9 +30,8 @@ td {
 .message {
   color: red;
   text-align: center;
+  padding-top: 30px;
 }
-
-.tweak {
-  margin-top: -50px;
-  padding-top: 50px;
+header {
+  position: fixed;
 }
