@@ -1,0 +1,38 @@
+.word_size {
+  margin-left: 20px;
+}
+
+.list {
+  width: 400px;
+  max-width: 400px;
+  padding: 10px;
+  min-height: 50px;
+  height: auto !important;
+  height: 50px;
+  word-wrap: break-word;
+}
+
+body {
+  background-color: rgb(233, 255, 224)
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #ccc;
+  background-color: white;
+}
+
+td {
+  border-bottom: 1px solid #ccc;
+}
+
+.message {
+  color: red;
+  text-align: center;
+}
+
+.tweak {
+  margin-top: -50px;
+  padding-top: 50px;
+}

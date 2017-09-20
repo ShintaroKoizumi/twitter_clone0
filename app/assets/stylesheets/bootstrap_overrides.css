@@ -1,0 +1,78 @@
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+    color: white;
+    background-color: rgb(40, 161, 34);
+    width: 150px;
+    text-align: center;
+}
+a {
+    background-color: rgb(169, 255, 120);
+    color:rgb(0, 0, 0);
+}
+.dropdown-menu {
+  min-width: 400px;
+  background-color: rgb(169, 255, 120);
+}
+element.style {
+    width: 300px;
+    height: 63px;
+}
+button, input, optgroup, select, textarea {
+    margin: auto;
+}
+.form-control {
+  width: 95%;
+}
+.btn-default {
+    color: rgb(255, 255, 255);
+    background-color: rgb(109, 219, 103);
+    border-color: #ccc;
+}
+.btn {
+  float:right;
+  margin-right: 10px;
+}
+.nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
+    background-color: rgb(109, 219, 103);
+    border-color: #337ab7;
+}
+.nav>li>a:focus, .nav>li>a:hover {
+    background-color: rgb(109, 219, 103);
+}
+td .btn-default {
+    color: rgb(40, 161, 34);
+    background-color: white;
+    border-color: rgb(40, 161, 34);
+}
+td .dropdown-menu {
+  min-width: auto;
+  background-color: white;
+}
+.dropdown-menu>li>a {
+    display: block;
+    padding: 0px 10px;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+    color: rgb(40, 161, 34);
+    white-space: nowrap;
+    background-color: white;
+}
+.btn-xs {
+    padding: 0px 2px;
+    font-size: 8px;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+    background-color: rgb(40, 161, 34);
+}
+h3 {
+  color: rgb(40, 161, 34);
+  text-align: center;
+}
+.container-fluid {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+li .dropdown {
+  width :150px;
+  text-align: center;
+}

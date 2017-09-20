@@ -1,0 +1,11 @@
+<div class="edit_area">
+  <div class="tweak row">
+    <%= form_for(@tweet) do |form| %>
+      <div class="tweet_title ">
+        <textarea rows="4" col="140" name="tweet[content]" id="tweet_content"></textarea>
+      </div>
+      <p>140文字以内</p>
+      <input type="submit" name="commit" value="編集する" data-disable-with="Create Tweet">
+    <% end %>
+  </div>
+</div>
