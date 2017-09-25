@@ -1,28 +1,36 @@
-<div class="tweak">
-  <div class="container">
-    <p class="message"><%= notice %></p>
-    <h3>つぶやき</h3>
-    <table>
-      <% @tweets.each do |tweet| %>
-      <tr>
-        <td class="list"><%= tweet.content %></td>
-        <td class="list-editer">
-          <div class="dropdown">
-            <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown">
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-              <li role="presentation">
-                <a><%= link_to "編集", edit_tweet_path(tweet.id) %></a>
-              </li>
-              <li role="presentation">
-                <a><%= link_to '削除', tweet_path(tweet.id), data: { confirm: '本当に編集していいですか？' }, method: :delete %></a>
-              </li>
-            </ul>
-          </div>
-        </td>
-      </tr>
-      <% end %>
-    </table>
+<div class="container-fluid">
+  <h3>つぶやき</h3>
+  <p class="message"><%= notice %></p>
+  <div class="tsubu-form">
+    <%= form_for(Tweet.new) do |form| %>
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="140文字以内" name="tweet[content]">
+      <span class="input-group-btn">
+        <button type="submit" class="btn btn-default" name="commit" data-disable-with="つぶやく">つぶやく</button>
+      </span>
+    </div>
+    <% end %>
   </div>
+  <table>
+    <% @tweets.each do |tweet| %>
+    <tr>
+      <td class="list"><%= tweet.content %></td>
+      <td class="list-editer">
+        <div class="dropdown">
+          <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown">
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li role="presentation">
+              <a><%= link_to "編集", edit_tweet_path(tweet.id) %></a>
+            </li>
+            <li role="presentation">
+              <a><%= link_to '削除', tweet_path(tweet.id), data: { confirm: '本当に編集していいですか？' }, method: :delete %></a>
+            </li>
+          </ul>
+        </div>
+      </td>
+    </tr>
+    <% end %>
+  </table>
 </div>
