@@ -1,5 +1,5 @@
 class TweetsController < ApplicationController
-  before_action :set_tweet, only: [:show, :edit, :update]
+  before_action :set_tweet, only: %i[show edit update]
   def index
     @tweets = Tweet.all.reverse_order
   end

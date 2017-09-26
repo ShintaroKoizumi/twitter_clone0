@@ -1,8 +1,7 @@
-.navbar {
-  margin-bottom: 0px;
-}
+
 .navbar-default {
   background-color: #a5d199;
+  margin-bottom: 0px;
 }
 .navbar-default .navbar-nav > li > a {
   color: #252525;
@@ -25,4 +24,15 @@ color: #0f6500;
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
 background-color: #6cd75a;
+}
+.jumbotron {
+  background-image: url("top/start.png");
+  height: 400px;
+  text-align: center;
+  margin-bottom: 0px;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #0f6500;
+    border-color: #a5d199;
 }
