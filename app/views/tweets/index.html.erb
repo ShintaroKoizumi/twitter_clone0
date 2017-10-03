@@ -2,10 +2,10 @@
   <div class="col-sm-3 col-md-3 panel-margin">
     <div class="panel panel-success">
       <div class="panel-heading">
-        アカウント
+        広告
       </div>
       <div class="panel-body">
-        アカウント情報
+        広告
       </div>
     </div>
   </div>
@@ -32,10 +32,10 @@
             </button>
             <ul class="dropdown-menu" role="menu">
               <li role="presentation">
-                <a><%= link_to "編集", edit_tweet_path(tweet.id) %></a>
+                <%= link_to "編集", edit_tweet_path(tweet.id) %>
               </li>
               <li role="presentation">
-                <a><%= link_to '削除', tweet_path(tweet.id), data: { confirm: '本当に編集していいですか？' }, method: :delete %></a>
+                <%= link_to '削除', tweet_path(tweet.id), data: { confirm: '本当に編集していいですか？' }, method: :delete %>
               </li>
             </ul>
           </div>

@@ -17,7 +17,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/tweets">
+          <a class="navbar-brand" href="/">
             <img alt="Brand" src="<%= asset_path "top/wood.png" %>" style="height: 20px;">
           </a>
         </div>
@@ -25,13 +25,27 @@
         <div class="collapse navbar-collapse" id="navbarEexample4">
           <ul class="nav navbar-nav">
             <li>
-              <a href="/">トップページ</a>
+              <a href="/tweets">マイページ</a>
             </li>
             <li>
               <a href="#">設定</a>
             </li>
           </ul>
-          <button type="button" class="btn btn-default navbar-btn">ログイン</button>
+          <% if logged_in? %>
+          <a class="btn btn-primary btn-lg" href="<%= user_path(current_user.id) %>">
+            登録情報
+          </a>
+          <a class="btn btn-primary btn-lg" data-method="delete" href="<%= session_path(current_user.id) %>">
+            ログアウト
+          </a>
+          <% else %>
+          <a class="btn btn-primary btn-lg" href="<%= new_user_path %>">
+            登録
+          </a>
+          <a class="btn btn-primary btn-lg" href="<%= new_session_path %>">
+            ログイン
+          </a>
+          <% end %>
         </div>
       </div>
     </nav>

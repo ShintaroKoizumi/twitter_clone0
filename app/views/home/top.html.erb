@@ -3,7 +3,22 @@
     <h1>ぶつぶつ</h1>
     <p>人目を気にせずひとりごと</p>
     <p>
-      <a class="btn btn-primary btn-lg" href="/tweets" role="button">ぶつる</a>
+      <% if logged_in? %>
+      <a class="btn btn-primary btn-lg" href="<%= user_path(current_user.id) %>">
+        登録情報
+      </a>
+      <a class="btn btn-primary btn-lg" data-method="delete" href="<%= session_path(current_user.id) %>">
+        ログアウト
+      </a>
+      <% else %>
+      <a class="btn btn-primary btn-lg" href="<%= new_user_path %>">
+        登録
+      </a>
+      <a class="btn btn-primary btn-lg" href="<%= new_session_path %>">
+        ログイン
+      </a>
+      <% end %>
     </p>
   </div>
 </div>
+

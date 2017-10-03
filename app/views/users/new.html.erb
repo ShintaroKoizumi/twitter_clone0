@@ -1,0 +1,51 @@
+<div class="login_center">
+  <h1>Sign up</h1>
+  <% if @user.errors.any? %>
+    <p>
+      The form contains <%= pluralize(@user.errors.count, "error") %>.
+    </p>
+    <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <table>
+    <%= form_for(@user) do |f| %>
+    <tr>
+      <th>
+        <%= f.label :name %>
+      </th>
+      <th>
+        <%= f.text_field :name %>
+      </th>
+    </tr>
+    <tr>
+      <th>
+        <%= f.label :email %>
+      </th>
+      <th>
+        <%= f.email_field :email %>
+      </th>
+    </tr>
+    <tr>
+      <th>
+        <%= f.label :password %>
+      </th>
+      <th>
+        <%= f.password_field :password %>
+      </th>
+    </tr>
+    <tr>
+      <th>
+        <%= f.label :password_confirmation %>
+      </th>
+      <th>
+        <%= f.password_field :password_confirmation %>
+      </th>
+    </tr>
+  </table>
+  <%= f.submit "Create my account" %>
+<% end %>
+</div>
