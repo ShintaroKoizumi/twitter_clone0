@@ -10,9 +10,8 @@
       <% end %>
     </ul>
   <% end %>
-
+  <%= form_for(@user) do |f| %>
   <table>
-    <%= form_for(@user) do |f| %>
     <tr>
       <th>
         <%= f.label :name %>
@@ -47,5 +46,5 @@
     </tr>
   </table>
   <%= f.submit "Create my account" %>
-<% end %>
+  <% end %>
 </div>
