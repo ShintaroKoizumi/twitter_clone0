@@ -1,5 +1,5 @@
 class TweetsController < ApplicationController
-  before_action :set_tweet, only: %i[show edit update]
+  before_action :set_tweet, only: %i[edit update destroy]
   before_action :callback_login, only: %i[index edit show]
   def index
     @tweets = Tweet.all.reverse_order
@@ -10,6 +10,7 @@ class TweetsController < ApplicationController
   def create
     @tweet = Tweet.new(tweet_params)
     if @tweet.save
+      TweetMailer.tweet_mail(@tweet).deliver
       redirect_to '/tweets', notice: 'つぶやきました！！'
     else
       redirect_to '/tweets', notice: 'つぶやき失敗！！'
@@ -19,7 +20,6 @@ class TweetsController < ApplicationController
   def edit; end
 
   def update
-    @tweet = Tweet.find(params[:id])
     if @tweet.update(tweet_params)
       redirect_to '/tweets', notice: '編集しました！!'
     else
@@ -28,7 +28,6 @@ class TweetsController < ApplicationController
   end
 
   def destroy
-    @tweet = Tweet.find(params[:id])
     @tweet.destroy
     redirect_to '/tweets', notice: '削除しました！'
   end
