@@ -1,7 +1,8 @@
 class TweetMailer < ApplicationMailer
   def tweet_mail(tweet)
     @tweet = tweet
+    @user = UsersController.user_params
 
-    mail to: User.find(params[:email]), subject: "つぶやき通知"
+    mail to: @user.email, subject: "つぶやき通知"
   end
 end
