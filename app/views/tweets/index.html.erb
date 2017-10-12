@@ -12,7 +12,7 @@
   <div class="col-sm-9 col-md-9 tsubu-margin">
     <p class="message"><%= notice %></p>
     <div class="tsubu-form">
-      <%= form_for(Tweet.new) do |form| %>
+      <%= form_for(@tweets_new) do |form| %>
       <div class="input-group">
         <input type="text" class="form-control" placeholder="140文字以内" name="tweet[content]">
         <span class="input-group-btn">

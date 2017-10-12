@@ -3,12 +3,14 @@ class TweetsController < ApplicationController
   before_action :callback_login, only: %i[index edit show]
   def index
     @tweets = Tweet.all.reverse_order
+    @tweets_new = Tweet.new
+    @tweets_new.user_id = current_user.id
   end
 
   def new; end
 
   def create
-    @tweet = Tweet.new(tweet_params)
+    @tweet = Tweet.new(tweets_params)
     if @tweet.save
       TweetMailer.tweet_mail(@tweet).deliver
       redirect_to '/tweets', notice: 'つぶやきました！！'
@@ -34,8 +36,8 @@ class TweetsController < ApplicationController
 
   private
 
-  def tweet_params
-    params.require(:tweet).permit(:content)
+  def tweets_params
+    params.require(:tweet).permit(:content, :user_id)
   end
 
   def set_tweet
