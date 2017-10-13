@@ -3,16 +3,16 @@ class TweetsController < ApplicationController
   before_action :callback_login, only: %i[index edit show]
   def index
     @tweets = Tweet.all.reverse_order
-    @tweets_new = Tweet.new
-    @tweets_new.user_id = current_user.id
+    @tweet_new = Tweet.new
   end
 
   def new; end
 
   def create
-    @tweet = Tweet.new(tweets_params)
-    if @tweet.save
-      TweetMailer.tweet_mail(@tweet).deliver
+    @tweet_new = Tweet.new(tweets_params)
+    @tweet_new.user_id = current_user.id
+    if @tweet_new.save
+      TweetMailer.tweet_mail(@tweet_new).deliver
       redirect_to '/tweets', notice: 'つぶやきました！！'
     else
       redirect_to '/tweets', notice: 'つぶやき失敗！！'
