@@ -3,6 +3,6 @@ class TweetMailer < ApplicationMailer
     @tweet = tweet
 
 
-    mail to: user.email, subject: "つぶやき通知"
+    mail to: @tweet.user.email, subject: "つぶやき通知"
   end
 end
