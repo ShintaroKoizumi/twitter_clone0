@@ -5,7 +5,11 @@ Rails.application.routes.draw do
 
   resources :users
 
-  resources :tweets
+  resources :tweets do
+    collection do
+      get :confirm
+    end
+  end
 
   resources :sessions, only: [:new, :create, :destroy]
 

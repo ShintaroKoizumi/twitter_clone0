@@ -36,6 +36,9 @@ class TweetsController < ApplicationController
     redirect_to '/tweets', notice: '削除しました！'
   end
 
+  def confirm
+  end
+
   private
 
   def tweets_params
