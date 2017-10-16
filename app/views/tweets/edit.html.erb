@@ -1,4 +1,10 @@
 <div class="edit_area">
+  <div>
+    ＜変更前＞
+  </div>
+  <div>
+    <%= @tweet.content %>
+  </div>
   <div class="tweak row">
     <%= form_for(@tweet) do |form| %>
       <div class="tweet_title ">
