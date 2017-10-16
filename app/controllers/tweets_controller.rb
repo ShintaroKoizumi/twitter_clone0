@@ -24,7 +24,7 @@ class TweetsController < ApplicationController
   def edit; end
 
   def update
-    if @tweet.update(tweet_params)
+    if @tweet.update(tweets_params)
       redirect_to '/tweets', notice: '編集しました！!'
     else
       redirect_to '/tweets', notice: '編集失敗！！'
