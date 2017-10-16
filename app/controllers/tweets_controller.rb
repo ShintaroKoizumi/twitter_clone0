@@ -5,7 +5,6 @@ class TweetsController < ApplicationController
   def index
     @tweets = Tweet.all.reverse_order
     @tweet_new = Tweet.new
-    #@favorite = current_user.favorites.find_by(tweet_id: tweet.id)
   end
 
   def new; end
@@ -37,6 +36,7 @@ class TweetsController < ApplicationController
   end
 
   def confirm
+    @favorites = Favorite.all.reverse_order
   end
 
   private

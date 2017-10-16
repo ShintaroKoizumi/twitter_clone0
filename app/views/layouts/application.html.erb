@@ -25,7 +25,10 @@
         <div class="collapse navbar-collapse" id="navbarEexample4">
           <ul class="nav navbar-nav">
             <li>
-              <a href="/tweets">マイつぶやき</a>
+              <a href="/tweets">つぶやき</a>
+            </li>
+            <li>
+              <%= link_to "お気に入り一覧", confirm_tweets_path(params[:id]) %>
             </li>
             <li>
               <a href="#">設定</a>
