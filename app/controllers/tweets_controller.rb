@@ -1,9 +1,11 @@
 class TweetsController < ApplicationController
-  before_action :set_tweet, only: %i[edit update destroy]
-  before_action :callback_login, only: %i[index edit show]
+  before_action :set_tweet, only: [:edit, :update, :destroy]
+  before_action :callback_login, only: [:index, :edit, :show]
+
   def index
     @tweets = Tweet.all.reverse_order
     @tweet_new = Tweet.new
+    #@favorite = current_user.favorites.find_by(tweet_id: tweet.id)
   end
 
   def new; end

@@ -24,7 +24,14 @@
     <table>
       <% @tweets.each do |tweet| %>
       <tr>
-        <td class="list"><%= tweet.content %></td>
+        <td class="list">
+          <div>
+            [<%= tweet.user.name %>]
+          </div>
+          <div>
+            <%= tweet.content %>
+          </div>
+        </td>
         <td class="list-editer">
           <div class="dropdown">
             <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown">
@@ -36,6 +43,15 @@
               </li>
               <li role="presentation">
                 <%= link_to '削除', tweet_path(tweet.id), data: { confirm: '本当に編集していいですか？' }, method: :delete %>
+              </li>
+              <li role="presentation">
+                <% unless tweet.user == current_user %>
+                  <% if current_user.favorites.find_by(tweet_id: tweet.id).present? %>
+                    <%= link_to 'お気に入り解除', favorite_path(current_user.favorites.find_by(tweet_id: tweet.id)), method: :delete, class: 'btn btn-danger' %>
+                  <% else %>
+                    <%= link_to 'お気に入り', favorites_path(tweet_id: tweet.id), method: :post, class: 'btn btn-danger' %>
+                  <% end %>
+                <% end %>
               </li>
             </ul>
           </div>

@@ -7,5 +7,6 @@ class User < ApplicationRecord
   has_secure_password
   validates :password, presence: true, length: { minimum: 8 }
 
-  has_many :tweets
+  has_many :tweets, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 end
