@@ -36,7 +36,7 @@ class TweetsController < ApplicationController
   end
 
   def confirm
-    @favorites = Favorite.all.reverse_order
+    @favorites = current_user.favorites.all.reverse_order
   end
 
   private
