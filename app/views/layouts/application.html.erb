@@ -30,14 +30,10 @@
             <li>
               <%= link_to "お気に入り一覧", confirm_tweets_path(params[:id]) %>
             </li>
-            <li>
-              <a href="#">設定</a>
-            </li>
           </ul>
           <% if logged_in? %>
-          <a class="btn btn-primary btn-lg" href="<%= user_path(current_user.id) %>">
-            登録情報
-          </a>
+          <%= link_to "登録情報", user_path(current_user.id), class: "btn btn-primary btn-lg" %>
+          <%= link_to "アカウント編集", edit_user_path(current_user.id), class: "btn btn-primary btn-lg" %>
           <a class="btn btn-primary btn-lg" data-method="delete" href="<%= session_path(current_user.id) %>">
             ログアウト
           </a>

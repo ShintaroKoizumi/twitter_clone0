@@ -5,6 +5,7 @@ class TweetsController < ApplicationController
   def index
     @tweets = Tweet.all.reverse_order
     @tweet_new = Tweet.new
+    @user = current_user
   end
 
   def new; end
@@ -42,7 +43,7 @@ class TweetsController < ApplicationController
   private
 
   def tweets_params
-    params.require(:tweet).permit(:content, :user_id)
+    params.require(:tweet).permit(:content, :user_id, :picture)
   end
 
   def set_tweet

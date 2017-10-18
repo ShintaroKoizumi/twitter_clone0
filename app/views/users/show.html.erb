@@ -1,3 +1,12 @@
-<h1><%= @user.name %></h1>
-
-<p>メールアドレス: <%= @user.email %></p>
+<%= notice %>
+<table>
+  <tr>
+    <td>
+      <%= image_tag @user.image_url.to_s, size: "300x300" %>
+    </td>
+    <td>
+      <h3><%= @user.name %></h3>
+      <p>メールアドレス: <%= @user.email %></p>
+    </td>
+  </tr>
+</table>

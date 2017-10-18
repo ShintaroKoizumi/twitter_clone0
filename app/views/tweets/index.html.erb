@@ -2,31 +2,50 @@
   <div class="col-sm-3 col-md-3 panel-margin">
     <div class="panel panel-success">
       <div class="panel-heading">
-        広告
+        アカウント情報
       </div>
       <div class="panel-body">
-        広告
+        <table>
+          <tr>
+            <td>
+              <%= image_tag @user.image_url.to_s, size: "50x50" %>
+            </td>
+            <td>
+              <h4><%= @user.name %></h4>
+              <p>メールアドレス: <%= @user.email %></p>
+            </td>
+          </tr>
+        </table>
       </div>
     </div>
   </div>
   <div class="col-sm-9 col-md-9 tsubu-margin">
     <p class="message"><%= notice %></p>
     <div class="tsubu-form">
-      <%= form_for(@tweet_new) do |form| %>
+      <%= form_for(@tweet_new) do |f| %>
       <div class="input-group">
-        <input type="text" class="form-control" placeholder="140文字以内" name="tweet[content]">
+        <span class="input-group-btn">
+          <%= f.label :picture %>
+          <%= f.file_field :picture, id: :tweet_picture %>
+        </span>
+        <input type="text" class="form-control" placeholder="140文字以内" name="tweet[content]" />
         <span class="input-group-btn">
           <button type="submit" class="btn btn-default" name="commit" data-disable-with="つぶやく">つぶやく</button>
         </span>
       </div>
       <% end %>
     </div>
-    <table>
+    <table class="tweet">
       <% @tweets.each do |tweet| %>
-      <tr>
+      <tr class="tweet_tr">
         <td class="list">
           <div>
             [<%= tweet.user.name %>]
+          </div>
+          <div>
+            <% unless tweet.picture.blank? %>
+              <%= image_tag tweet.picture_url, size: '750x375' %>
+            <% end %>
           </div>
           <div>
             <%= tweet.content %>

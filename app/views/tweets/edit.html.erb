@@ -1,13 +1,27 @@
-<div class="edit_area">
-  <div>
-
-  </div>
+<div class="edit_area ">
   <div class="tweak row">
-    <%= form_for(@tweet) do |form| %>
+    <%= form_for(@tweet) do |f| %>
       <div class="tweet_title ">
+        <table>
+          <tr>
+            <td>
+              <div>
+                <% unless @tweet.picture.blank? %>
+                  <%= image_tag @tweet.picture_url, size: '750x375' %>
+                <% end %>
+              </div>
+              <div>
+                <span class="input-group-btn">
+                  <%= f.label :picture %>
+                  <%= f.file_field :picture, id: :tweet_picture %>
+                </span>
+              </div>
+            </td>
+          </tr>
+        </table>
         <textarea rows="4" col="140" name="tweet[content]" id="tweet_content"><%= @tweet.content %></textarea>
       </div>
-      <input type="submit" name="commit" value="編集する" data-disable-with="Create Tweet">
+      <input type="submit" name="commit" value="編集する">
     <% end %>
   </div>
 </div>

@@ -8,13 +8,13 @@ body li {
   margin: 0px auto;
 }
 
-table {
+.tweet {
   margin: 0px auto;
   border: 1px solid #ccc;
   background-color: white;
 }
 
-tr {
+.tweet_tr {
   border: solid 1px #ccc;
 }
 .list {
@@ -24,6 +24,7 @@ tr {
   height: auto !important;
   height: 50px;
   word-wrap: break-word;
+  border-bottom: 1px solid #ccc;
 }
 
 body {
@@ -32,9 +33,6 @@ body {
 .message {
   color: red;
   text-align: center;
-}
-td {
-  border-bottom: 1px solid #ccc;
 }
 footer {
   position: relative;
